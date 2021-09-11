@@ -197,5 +197,12 @@ OBS: O corte do filtro deve ser maior que o corte da planta, mas menor que a fre
 - Utilização da função tangente hiperbólica;
 
 # Parte 8
+
+**Efeito de distúrbio na entrada da planta**: Durante o deslizamento o sinal de controle é igual ao sinal de controle para a condição de "matching" menos o valor do distúrbio, implicando que o sinal de controle anula o efeito do distúrbio.
+
+**Efeito da dinâmica não modelada da planta**: a dinâmica parasita é muito rápida e é desprezada na modelagem da planta. Ela influencia o comportamento da planta no sentido de que o erro de saída passa a tender para um domínio residual da ordem de $\sqrt{\mu}$.
+
+**Efeito de ruídos de medição**: o efeito de um sinal de alta frequência adicionado à entrada de um relé é o de diminuir o ganho efetivo do relé. Assim, as propriedades de invariância de um sistema com estrutura variável (manutenção da trajetória sobre a superfície de deslizamento) são bastante deterioradas pelo aumento da amplitude do sinal de alta frequência. A SOLUÇÃO é a filtragem do erro de saída, oscasionando o aumento da complexidade do algoritmo (aumentando a ordem da planta devido ao filtro).
+
 # Parte 9
 # Parte 10
