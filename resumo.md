@@ -149,6 +149,15 @@ OBS: O corte do filtro deve ser maior que o corte da planta, mas menor que a fre
 
 
 # Parte 6
+
+8. Oitava estratégia - controle por modelo de referência e estrutura vairável (VS-MRAC):
+    - Obtenção de robustez com excelente desempenho transitório;
+    - Ao avaliar a estabilidade pela teoria de Lyapunov, considera-se substituir as leis integrais de adaptação por leis chaveadas e obter um modo deslizante ao entorno do ponto de erro nulo;
+    - Condição de deslizamento: $e_0 \dot{e}_0 < 0$;
+    - O estado de equilíbrio $e_0=0$ é assintoticamente estável e $e_0$ é UL;
+    - A superfície de deslizamento $e_0=0$ é alcançada em tempo finito;
+    - Ao atingir o deslizamento, o erro se torna nulo e, consequentemente a variação do erro também será nula, tornando o sinal de controle igual ao sinal de controla para a condição de "matching";
+
 # Parte 7
 # Parte 8
 # Parte 9
