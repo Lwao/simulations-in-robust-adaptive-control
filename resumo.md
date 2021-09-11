@@ -82,7 +82,46 @@ As abordagens clássicas são:
 A saída da planta tende a acompanhar o modelo de referência pois o erro de saída tende a zero e a adaptação dos parâmetros tende a parar. Assim não há garantia de que os erros paramétricas tendam a zero.
 
 # Parte 4
+
+**Exemplos de Rohrs**: estes mostram que com as leis de adaptação integrais permitem desempenho satisfatório para a planta nominal, porem o desmeepnho é deteriorado na presença de dinâmica não modelada, interferências externas ou ruídos, podendo até instabilizar a planta.
+
+**Causas de instabilização em sistemas adaptativos**:
+1. Ausência de uma referência persistentemente excitante:
+    - Permite a convergência dos parâmetros do ssitema nominal;
+    - Previne o desvio dos parâmetros devido a dinâmica não modelada e distúrbios (ou ruídos) externos;
+2. Presença de sinais com alta frequência e com grande amplitude originários de referências persistentemente excitantes ou de distúrbios (ou ruídos) externos:
+    - A interação dos sinais com alta frequência com os modos da dinâmica não modelada pode levar a um fenômeno semelhante à ressonância.
+3. Utilização de referência constante e com grande amplitude e de um algoritmo de adaptação não normalizado na presença de dinâmica não modelada.
+
+**Sinal persistentemente excitante (sinal P.E.)**: este permite que quando utilizado em uma dada planta garanta que os parâmetros adaptativos tendam aos valores corretos, pois este é um sinal de baixa amplitude e com banda de frequência próxima da frequência de corte da planta (uma oitava abaixo ou acima) para que permita excitar todos os modos de excitação da planta.
+
+**Busca de robustez em sistemas adaptativos**: sistemas exponencialmente estáveis podem tolerar distúrbios e dinâmica não modelada dentro de certos limites. Essa propriedade de estabilidade exponencial é presente quando no transitório encontram-se termos na forma de uma exponencial com decaimento.
+
+1. Primeira estratégia - utilização de um sinal de referência P.E.:
+    - A utilização de uma referência P.E. garante que os parâmetros do controlador convirjam para os ideais;
+    - Porém nem todos os sistemas suportam oscilações;
+    - Assim deve-se buscar modificações nas leis de adaptação originais para preservar a estabilidade;
+    - As ideias podem ser limitar os parâmetros do controaldor ou neutralizar os desvios paramétricos da eleminação da ação integral nas leis de adaptação;
+2. Segunda estratégia - zona morta:
+    - Parar o ajuste dos parâmetros do controlador quando a excitação for insuficiente para distinguir entre os sinais de referência e saída e o ruído;
+3. Terceira estratégia - limitação dos parâmetros adaptativos:
+    - Confinar os parâmetros em uma bola do espaço paramétrico, evitando cessar o ajuste dos parâmetros;
+4. Quarta estratégia - normalização:
+    - A normalização evita o crescimento do módulo dos parâmetros do controlador, evitando que o sinal de controle cresça em demasia;
+5. Quinta estratégia - modificação sigma com fator de esquecimento:
+    - O fator de esquecimento permite que informaçõe mais recentes possuam mais importância que informações mais antigas;
+    - Um problema atrelado à essa estratégia é o fenômeno de "bursting";
+    - O "bursting" consiste em oscilações intermitentes e de grande amplitude intercaladas e de comportamento aparentemente estável;
+6. Sexta estratégia - modificação sigma com normalização:
+    - Esta estratégia complementa a anterior para evitar o fenômeno de "bursting"
+7. Sétima estratégia - projeção:
+    - A projeção evita o crescimento do módulos dos parâmetros do controlador, porém diferente do caso da normalização que os limita de acordo com os sinais de referência e de saída da planta, este utiliza um fator constante de limitação;
+
+Em geral essas técnicas de controle adaptativo robusto apresentam transitórios lentos e oscilatórios.
+
 # Parte 5
+
+
 # Parte 6
 # Parte 7
 # Parte 8
