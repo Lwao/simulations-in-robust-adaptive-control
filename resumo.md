@@ -205,4 +205,21 @@ OBS: O corte do filtro deve ser maior que o corte da planta, mas menor que a fre
 **Efeito de ruídos de medição**: o efeito de um sinal de alta frequência adicionado à entrada de um relé é o de diminuir o ganho efetivo do relé. Assim, as propriedades de invariância de um sistema com estrutura variável (manutenção da trajetória sobre a superfície de deslizamento) são bastante deterioradas pelo aumento da amplitude do sinal de alta frequência. A SOLUÇÃO é a filtragem do erro de saída, oscasionando o aumento da complexidade do algoritmo (aumentando a ordem da planta devido ao filtro).
 
 # Parte 9
+
+**Controle adaptativo por posicionamento de polos (APPC) ou controle auto-ajustável (STC)**: 
+ - Implementado na forma indireta;
+ - O APPC é constituído de uma controlador por posicionamento de polos (PPC) e um estiamdor de parâmetros;
+ - Escolher o sinal de controle tal que o polo de malha fechada seja o desejado e o sinal de controle e a saída da planta sejam UL e a saída da planta rastreie o sinal de referência;
+
+**Controle adaptativo por posicionamento de polos e estrutura variável (VS-APPC)**:
+ - Escolher o sinal de controle tal que o polo de malha fechada seja o desejado e o sinal de controle e a saída da planta sejam UL e a saída da planta rastreie o sinal de referência;
+
 # Parte 10
+
+**Controle adaptativo por posicionamento de polos (APPC) ou controle auto-ajustável (STC)**: 
+ - Implementado na forma indireta;
+ - O APPC é constituído de uma controlador por posicionamento de polos (PPC) e um estiamdor de parâmetros;
+ - Escolher o sinal de controle tal que o polo de malha fechada seja o desejado e o sinal de controle e a saída da planta sejam UL e a saída da planta rastreie o sinal de referência;
+
+**Controle adaptativo por posicionamento de polos e estrutura variável (VS-APPC)**:
+ - Escolher o sinal de controle tal que o polo de malha fechada seja o desejado e o sinal de controle e a saída da planta sejam UL e a saída da planta rastreie o sinal de referência;
