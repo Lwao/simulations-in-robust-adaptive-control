@@ -121,6 +121,32 @@ Em geral essas técnicas de controle adaptativo robusto apresentam transitórios
 
 # Parte 5
 
+**Sistemas com estrutura variável**: sistemas cuja estrutura pode ser alterada por dispositivos de chaveamento.
+
+Para alcançar uma reta $s(x)=0$, deve-se ter $s(x)\cdot \dot{s}(x)<0$, isso é garantido por:
+- $s(x)>0$ e $\dot{s}(x)<0$, ou seja, a função está acima da reta e decresce para se aproximar;
+- $s(x)<0$ e $\dot{s}(x)>0$, ou seja, a função está abaixo da reta e cresce para se aproximar;
+
+Uma trajetória que alcança $s(x)=0$ não sai mais dela (condição de invariância), fazendo com que a trajetória seja forçada a deslizar sobre a reta, apresentando um modo deslizante ("sliding mode") sobre esta superfície.
+
+*Deslizamento ideal*: frequência de chaveamento infinita. Há uma redução na ordem da dinâmica do sistema.
+
+*Deslizamento real*: frequência de chaveamento elevada, mas finita. O sinal de controle apresentará um chaveamento com frequência elevada,a carretando o fenômeno de "chattering".
+
+Estratégias de simplificação podem ser aplicadas para reduzir o número de relés, gerando uma lei compacta, mas de mesma robustez.
+
+**Controle equivalente**: é o valor obtido para o sinal de referência durante o deslizamento e é uma valor contínuo que mantém a trajetória sobre a reta de deslizamento na ausência de dinâmica não modela e pertubações.
+
+**Obtenção prática do controle equivalente**: pode ser obtido como o valor médio do sinal de controle através da passagem por um filtro passa-baixa com frequência de corte suficientemente alta (filtro de valor médio) na ausência de dinâmica não modelada e pertubações. 
+
+OBS: O corte do filtro deve ser maior que o corte da planta, mas menor que a frequência de chaveamento.
+
+**Solução de Filippov**: ajuste por coeficientes complementares para que a curva seja tangente à trajetória no deslizamento ideal.
+
+**Problemas relacionados**: 
+- Necessidade de medição das variáveis de estado;
+- Fenômeno de "chattering";
+
 
 # Parte 6
 # Parte 7
