@@ -159,6 +159,43 @@ OBS: O corte do filtro deve ser maior que o corte da planta, mas menor que a fre
     - Ao atingir o deslizamento, o erro se torna nulo e, consequentemente a variação do erro também será nula, tornando o sinal de controle igual ao sinal de controla para a condição de "matching";
 
 # Parte 7
+
+**Simplificações do VS-MRAC**:
+- VS-MRAC compacto: uso de um relé com amplitude variável;
+- VS-MRAC a relé: uso de um relé com amplitude constante;
+- Utilização de um controle nominal (redução na amplitude dos relés): antes a ampltiude dos relés deveria ser maior que os parâmetros ideais do controlador, causando maior sinal de controle, porém com esse ajuste a amplitude dos relés pode ser reduzida;
+- Relação entre MRAC e VS-MRAC:
+  - Lei para o MRAC com modificação sigma (termo de esquecimento) e uma normalização (termo de aprendizagem);
+  - A combinação garante combinar o melhor das duas técnicas de controle adaptativo robusto:
+    - MRAC com transitório lento e oscilatório, mas o controle é suave em regime permanente;
+    - VS-MRAC com transitório rápido e pouco osiclatório, mas sinal de controle chaveado em alta frequência ("chattering") em regime permanente;
+    - Para $\mu=0$, tem-se a lei para o VS-MRAC;
+    - Para $\mu \Rightarrow 0$, tem-se o caso limite do MRAC quando tanto o processo de aprendizagem quanto o processo de esquecimento são instantâneos;
+- DMARC (controle adapatativo em modo dual):
+  - Para um erro grande, tem-se $\mu \Rightarrow 0$, consequentemente o comportamento do VS-MRAC;
+  - Para um erro pequeno, tem-se $\mu \Rightarrow 1$, consequentemente o comportamento do MRAC com modificação sigma e normalização;
+  - $L$ grande aumenta a influência do MRAC e $L$ pequeno aumenta a influência do VS-MRAC;
+
+**Redução do chattering**:
+- DMARC;
+- Utilização de relé modificado (com região linear):
+  - Um relé puro possui transições abruptas (chaveamento com frequência tendendo ao infinito durante o deslizamento);
+  - Implementação de região linear durante a transição para que a frequência de chaveamento diminua com a diminuição a inclinação da curva de transição;
+  - Diminuição da inclinação pode acarretar:
+    - possibilidade erro de saída $e_0$ maior;
+    - possibilidade de instabilização na região linear;
+    - maior robustez em relação a atrasos de chaveamento do relé;
+    - possibilidade de evitar a excitação da dinâmica não modelada da planta;
+- Introdução de um compensador PI com saturação:
+  - A região linear leve ao surgimento de erro na saída da planta em regime permanente;
+  - Quando a referência ou o distúrbio são do tipo degrau, o erro em regime pode ser compensador por um compensador PI;
+  - Este evita a deterioração do comportamento transitório do sistema;
+  - Sua implementação deve possuir saturação por uma técnica de "anti-reset wind-up";
+- Utilização de relé com zona morta;
+- Utilização de relé com histerese;
+- Substituição do controle $u$ pelo controle equivalente $u_{eq}$;
+- Utilização da função tangente hiperbólica;
+
 # Parte 8
 # Parte 9
 # Parte 10
